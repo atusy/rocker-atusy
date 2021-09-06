@@ -29,7 +29,7 @@ bash /${SCRIPTS}/install_noto_fonts.bash \
 # extrafont is facing "No FontName. Skipping."
 # related: https://stackoverflow.com/questions/61204259/how-can-i-resolve-the-no-font-name-issue-when-importing-fonts-into-r-using-ext
 #
-install2.r extrafont
+install2.r --ncpus -1 extrafont ragg systemfonts
 r -e 'remotes::install_version("Rttf2pt1", version = "1.3.8")'
 r -e "extrafont::font_import(prompt = FALSE); extrafont::loadfonts()"
 
