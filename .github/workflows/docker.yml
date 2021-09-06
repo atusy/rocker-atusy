@@ -43,7 +43,7 @@ jobs:
           tags: |
             docker.pkg.github.com/${{ github.repository }}/report:${{ github.sha }}
             docker.pkg.github.com/${{ github.repository }}/report:latest
-          build_args: |
+          build-args: |
             BASE=docker.pkg.github.com/${{ github.repository }}/report
             TAG=latest
           secret-files: |
