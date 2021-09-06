@@ -8,6 +8,8 @@ on:
       - ".github/workflows/*"
       - "scripts/*"
       - "dockerfiles/*.Dockerfile"
+  schedule:
+    - cron: '0 0 1 * *'
   #release:
   #  types: [published]
 jobs:
@@ -48,3 +50,17 @@ jobs:
             TAG=latest
           secret-files: |
             "dotenv=.env"
+      - name: Build and Push Report Image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: dockerfiles/atusy_latest.Dockerfile
+          tags: |
+            docker.pkg.github.com/${{ github.repository }}/atusyverse:${{ github.sha }}
+            docker.pkg.github.com/${{ github.repository }}/atusyverse:latest
+          build-args: |
+            BASE=docker.pkg.github.com/${{ github.repository }}/report
+            TAG=latest
+          secret-files: |
+            "dotenv=.env"
+
