@@ -8,5 +8,7 @@ ENV TZ="Asia/Tokyo" \
     NOTO_TRUE_TYPE="Sans Serif Mono" \
     NOTO_OPENTYPE="SansCJKjp SerifCJKjp"
 COPY scripts /scripts_atusy
-RUN bash /scripts_atusy/run_ja.bash
+RUN --mount=type=secret,id=dotenv,dst=/run/secrets/.env \
+    set -a && . /run/secrets/.env && set + a && \
+    bash /scripts_atusy/run_ja.bash
 
