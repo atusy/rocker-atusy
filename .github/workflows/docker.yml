@@ -35,3 +35,16 @@ jobs:
             docker.pkg.github.com/${{ github.repository }}/ja:latest
           secret-files: |
             "dotenv=.env"
+      - name: Build and Push Report Image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: dockerfiles/report_latest.Dockerfile
+          tags: |
+            docker.pkg.github.com/${{ github.repository }}/report:${{ github.sha }}
+            docker.pkg.github.com/${{ github.repository }}/report:latest
+          build_args: |
+            BASE=docker.pkg.github.com/${{ github.repository }}/report
+            TAG=latest
+          secret-files: |
+            "dotenv=.env"
