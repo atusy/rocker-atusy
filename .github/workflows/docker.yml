@@ -1,11 +1,12 @@
 name: Publish Docker image
 on:
-  branches:
-    - "master"
-    - "main"
-  paths:
-    - "scripts/*"
-    - "dockerfiles/*.Dockerfile"
+  push:
+    branches:
+      - "master"
+      - "main"
+    paths:
+      - "scripts/*"
+      - "dockerfiles/*.Dockerfile"
   #release:
   #  types: [published]
 jobs:
