@@ -24,8 +24,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Create .env
-        run: echo "GITHUB_PAT=${{ GITHUB_TOKEN }}" >> ".env"
-      - name: Push to Docker Hub
+        run: echo "GITHUB_PAT=${GITHUB_TOKEN}" >> ".env"
+      - name: Build and Push
         uses: docker/build-push-action@v2
         with:
           push: true
