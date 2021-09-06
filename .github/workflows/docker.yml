@@ -44,7 +44,7 @@ jobs:
             docker.pkg.github.com/${{ github.repository }}/report:${{ github.sha }}
             docker.pkg.github.com/${{ github.repository }}/report:latest
           build-args: |
-            BASE=docker.pkg.github.com/${{ github.repository }}/report
+            BASE=docker.pkg.github.com/${{ github.repository }}/ja
             TAG=latest
           secret-files: |
             "dotenv=.env"
