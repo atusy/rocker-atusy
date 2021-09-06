@@ -5,6 +5,7 @@ on:
       - "master"
       - "main"
     paths:
+      - ".github/workflows/*"
       - "scripts/*"
       - "dockerfiles/*.Dockerfile"
   #release:
