@@ -32,6 +32,6 @@ jobs:
           file: dockerfiles/ja_latest.Dockerfile
           tags: |
             docker.pkg.github.com/${{ github.repository }}/ja:${{ github.sha }}
-            docker.pkg.github.com/${{ github.repository }}/ja:latest"
+            docker.pkg.github.com/${{ github.repository }}/ja:latest
           secret-files: |
             "dotenv=.env"
